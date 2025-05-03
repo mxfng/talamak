@@ -3,11 +3,15 @@ bio: Music for motion, moments, and magic.
 avatar: https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=400
 
 items:
-  - label: Spotify
+  - type: image
+    label: Spotify
+    src: https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
     url: https://spotify.com/tokomakai
     icon: spotify
 
-  - label: Instagram
+  - type: image
+    label: Instagram
+    src: https://images.unsplash.com/photo-1554189097-ffe88e998a2b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
     url: https://instagram.com/tokomakai
     icon: instagram
 
@@ -22,11 +26,15 @@ items:
     content: My new track is out now on all platforms.
     url: https://open.spotify.com/track/paintedlady
 
-  - label: YouTube
+  - type: image
+    label: YouTube
+    src: https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
     url: https://youtube.com/tokomakai
     icon: youtube
 
-  - label: SoundCloud
+  - type: image
+    label: SoundCloud
+    src: https://images.unsplash.com/photo-1516223725307-6f76b9ec8742?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
     url: https://soundcloud.com/tokomakai
     icon: soundcloud
 
@@ -47,7 +55,9 @@ items:
     content: Stream my latest EP featuring 5 new tracks of ambient electronica.
     url: https://open.spotify.com/album/midnightdreams
 
-  - label: Bandcamp
+  - type: image
+    label: Bandcamp
+    src: https://images.unsplash.com/photo-1574169208507-84376144848b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
     url: https://tokomakai.bandcamp.com
     icon: bandcamp
 
@@ -56,13 +66,14 @@ items:
     src: https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
     url: https://instagram.com/tokomakai/studio
 
-  - type: text
+  - type: image
     label: Tour Dates
-    title: Upcoming Shows
-    content: Catch me live at these upcoming venues across the country.
+    src: https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
     url: https://tokomakai.com/tour
 
-  - label: TikTok
+  - type: image
+    label: TikTok
+    src: https://images.unsplash.com/photo-1631281956016-3cdc1b2fe5fb?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
     url: https://tiktok.com/@tokomakai
     icon: tiktok
 

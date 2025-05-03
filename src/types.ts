@@ -11,10 +11,12 @@ export interface LinkItem extends BaseItem {
 export interface ImageItem extends BaseItem {
   type: "image";
   src: string;
+  icon?: string;
 }
 
 export interface TextItem extends BaseItem {
   type: "text";
+  title?: string;
   content: string;
 }
 

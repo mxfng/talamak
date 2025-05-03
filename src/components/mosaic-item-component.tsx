@@ -23,9 +23,12 @@ export function MosaicItemComponent({ item }: MosaicItemComponentProps) {
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/70 to-transparent flex items-end p-2">
               <span className="text-primary font-medium tracking-wide text-xs inline-flex items-center gap-0.5">
-                <span className="w-full text-start">
-                  {item.label} tsdkfaljsa dfsakfslad jfdsakfld
-                </span>
+                {item.icon && (
+                  <span className="opacity-80">
+                    <Icon name={item.icon} className="size-4" />
+                  </span>
+                )}
+                <span className="text-start">{item.label}</span>
               </span>
             </div>
           </div>
