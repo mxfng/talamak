@@ -18,6 +18,12 @@ items:
         url: https://youtube.com/watch?v=xyz123
         icon: youtube
 
+  - label: Instagram
+    links:
+      - label: Instagram
+        url: https://instagram.com/tokomakai
+        icon: instagram
+
   - label: Socials
     image:
       type: icon

@@ -1,4 +1,3 @@
-import { SearchBar } from "@/components/search-bar";
 import { MasonryLayout } from "@/components/masonry/masonry-layout";
 import { RootLayout } from "@/layouts/root-layout";
 import { Config } from "@/types";
@@ -15,7 +14,6 @@ import Fuse from "fuse.js";
 export default function RootPage() {
   const { config } = useLoaderData() as { config: Config };
   const searchQuery = useSearchStore((state) => state.searchQuery);
-  const setSearchQuery = useSearchStore((state) => state.setSearchQuery);
 
   // Setup fuzzy search with Fuse.js
   const fuse = useMemo(
@@ -84,7 +82,7 @@ export default function RootPage() {
             delay: 0.2,
           }}
         >
-          <SearchBar value={searchQuery} onChange={setSearchQuery} />
+          <Toolbar />
         </motion.div>
         <div className="fixed bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background via-background/80 to-transparent" />
       </div>

@@ -13,10 +13,15 @@ export function LinkCard({ item, type }: LinkCardProps) {
   const [imgError, setImgError] = useState(false);
 
   const label = item.label;
-  const icon =
-    !isGroup || (isGroup && (item as LinkItem).links.length === 1)
+
+  const hasSingleLink = isGroup && (item as LinkItem).links.length === 1;
+
+  const icon = hasSingleLink
+    ? (item as LinkItem).links[0].icon
+    : !isGroup
       ? (item as Link).icon
       : undefined;
+
   const image = isGroup ? (item as LinkItem).image : undefined;
   const showImage = image?.type === "icon" && !imgError;
 
@@ -54,7 +59,7 @@ export function LinkCard({ item, type }: LinkCardProps) {
           />
         ) : null}
 
-        <span className="text-primary font-medium tracking-wide truncate px-6 text-center">
+        <span className="text-primary text-lg font-medium tracking-wide truncate px-6 text-center">
           {label}
         </span>
       </div>

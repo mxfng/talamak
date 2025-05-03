@@ -14,9 +14,9 @@ import {
   SiThreads,
   SiGithub,
 } from "react-icons/si";
-import { FaGlobe, FaInfoCircle, FaLink } from "react-icons/fa";
 import { IconType } from "react-icons";
 import { LinkIcon } from "@/types";
+import { Globe, Info, Link } from "lucide-react";
 
 const iconMap: Record<LinkIcon, IconType> = {
   spotify: SiSpotify,
@@ -33,9 +33,9 @@ const iconMap: Record<LinkIcon, IconType> = {
   facebook: SiFacebook,
   threads: SiThreads,
   github: SiGithub,
-  website: FaGlobe,
-  info: FaInfoCircle,
-  link: FaLink,
+  website: Globe,
+  info: Info,
+  link: Link,
 };
 interface IconProps {
   name?: string;
@@ -43,6 +43,6 @@ interface IconProps {
 }
 
 export function Icon({ name = "link", className = "size-5" }: IconProps) {
-  const IconComponent = iconMap[name as LinkIcon] ?? FaLink;
+  const IconComponent = iconMap[name as LinkIcon] ?? Link;
   return <IconComponent className={className} />;
 }

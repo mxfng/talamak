@@ -53,7 +53,9 @@ export function SearchBar({
           onBlur={() => setFocused(false)}
           className={cn(
             "bg-transparent outline-none border-0 text-base placeholder:text-muted-foreground transition-all duration-500 ease-in-out",
-            isActive ? "opacity-100 w-full" : "opacity-0 w-0 cursor-pointer",
+            isActive
+              ? "opacity-100 w-full"
+              : "opacity-5 w-1 cursor-pointer text-transparent px-2 -mx-1",
           )}
         />
       </div>

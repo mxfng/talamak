@@ -2,6 +2,8 @@ import { LinkItem } from "@/types";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ExternalLink } from "lucide-react";
+import { Icon } from "@/components/icon";
 
 interface LinkFillCardProps {
   item: LinkItem;
@@ -13,9 +15,14 @@ export function LinkFillCard({ item, className, style }: LinkFillCardProps) {
   const [imgError, setImgError] = useState(false);
   const navigate = useNavigate();
 
+  // Check if this item has exactly one link
+  const hasSingleLink = item.links.length === 1;
+  // Get the icon from the single link if it exists
+  const singleLinkIcon = hasSingleLink ? item.links[0].icon : undefined;
+
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (item.links.length === 1) {
+    if (hasSingleLink) {
       window.open(item.links[0].url, "_blank");
     } else {
       navigate(`/links/${item.id}`);
@@ -36,6 +43,13 @@ export function LinkFillCard({ item, className, style }: LinkFillCardProps) {
         )}
         style={{ ...style, boxSizing: "border-box" }}
       >
+        <div className="absolute top-2 right-2 rounded-lg bg-background/30 backdrop-blur-sm shadow-sm p-2">
+          {singleLinkIcon ? (
+            <Icon name={singleLinkIcon} className="size-6 text-foreground/90" />
+          ) : (
+            <ExternalLink className="size-6 text-foreground/90" />
+          )}
+        </div>
         <img
           src={item.image.src}
           alt={item.label}
