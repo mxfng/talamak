@@ -9,6 +9,16 @@
 - Optional toolbar with fuzzy search, mailing list (coming soon), and sharing functionality
 - Fast and minimal - configurable via `config.yaml` and static image assets
 
+# Proposed Features
+
+- Improve search bar accessibility on mobile. Consider requiring enter key, showing suggestions, or other enhancements
+- Add mailing list support. Investigate ease of YAML-based setup for user opt-in
+- Add toggleable sharing button. Controlled via YAML (true/false), opens a share dialog
+- Extend sharing support to individual linkItems
+- Support full theme customization via YAML
+- Fix layout shift caused by static image loading
+- Add a "scroll to top" button
+
 ## Getting Started
 
 ### Install & Run
