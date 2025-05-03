@@ -1,25 +1,79 @@
+import { useScrollStore } from "@/hooks/useScrollStore";
+import { cn } from "@/lib/utils";
+
 interface ProfileHeaderProps {
   avatar: string;
   name: string;
   bio: string;
-  scrollPosition?: number;
 }
 
+// 🎛️ Constants for easy tuning
+const SCROLL_RANGE = 80;
+const COMPACT_THRESHOLD = 0.8;
+
+const AVATAR_MAX = 120;
+const AVATAR_MIN = 64;
+
+const PADDING_MAX = 32;
+const PADDING_MIN = 0;
+
+const FONT_MAX = 28;
+const FONT_MIN = 24;
+
 export function ProfileHeader({ avatar, name, bio }: ProfileHeaderProps) {
+  const scrollY = useScrollStore((state) => state.scrollPosition);
+
+  const clamped = Math.min(Math.max(scrollY, 0), SCROLL_RANGE);
+  const factor = clamped / SCROLL_RANGE;
+  const compact = factor >= COMPACT_THRESHOLD;
+
+  const avatarSize = AVATAR_MAX - (AVATAR_MAX - AVATAR_MIN) * factor;
+  const paddingY = PADDING_MAX - (PADDING_MAX - PADDING_MIN) * factor;
+  const fontSize = FONT_MAX - (FONT_MAX - FONT_MIN) * factor;
+
   return (
-    <div className="w-full flex py-4">
-      <div className="w-full flex flex-col items-center justify-center gap-3">
-        <div className="rounded-4xl overflow-hidden w-24 h-24">
+    <div
+      className={cn(
+        "w-full transition-all duration-75 ease-out",
+        compact &&
+          "bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/60",
+      )}
+      style={{
+        paddingTop: `${paddingY}px`,
+        paddingBottom: `${paddingY}px`,
+      }}
+    >
+      <div className="flex items-center justify-between transition-all duration-75 ease-out">
+        <div
+          className={cn(
+            "overflow-hidden transition-all duration-75 ease-out",
+            compact ? "rounded-full" : "rounded-4xl",
+          )}
+          style={{ width: avatarSize, height: avatarSize }}
+        >
           <img
             src={avatar}
-            className="w-full h-full object-cover object-center"
             alt={name}
+            className="w-full h-full object-cover object-center"
           />
         </div>
 
-        <div className="text-center">
-          <h1 className="font-bold text-2xl">{name}</h1>
-          <p className="text-muted-foreground max-w-xs leading-tight">{bio}</p>
+        <div className="ml-4 flex-1">
+          <h1
+            className={cn(
+              "font-bold transition-all duration-75 ease-out",
+              compact && "tracking-tight",
+            )}
+            style={{ fontSize: `${fontSize}px` }}
+          >
+            {name}
+          </h1>
+
+          {factor < 0.6 && (
+            <p className="text-muted-foreground text-sm leading-tight max-w-xs mt-1 transition-opacity duration-200">
+              {bio}
+            </p>
+          )}
         </div>
       </div>
     </div>

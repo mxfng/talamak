@@ -15,10 +15,7 @@ const preloadYamlPlugin = (): Plugin => {
       order: "pre",
       handler(html) {
         try {
-          const yamlContent = fs.readFileSync(
-            "public/config/linktree.yaml",
-            "utf-8",
-          );
+          const yamlContent = fs.readFileSync("public/config.yaml", "utf-8");
           const parsedData = yaml.load(yamlContent);
           const dataScript = `<script>window.__PRELOADED_CONFIG__ = ${JSON.stringify(parsedData)}</script>`;
           return html.replace("</head>", `${dataScript}</head>`);

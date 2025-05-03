@@ -43,9 +43,11 @@ export function LinkFillCard({ item, className, style }: LinkFillCardProps) {
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 to-transparent p-2">
-          <span className="text-primary font-medium tracking-wide text-sm">
-            {item.label}
-          </span>
+          <div className="w-full flex items-center justify-start p-4">
+            <span className="w-2xl text-start text-primary font-medium tracking-wide text-lg truncate">
+              {item.label}
+            </span>
+          </div>
         </div>
       </div>
     </button>

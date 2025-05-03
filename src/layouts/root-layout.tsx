@@ -1,22 +1,26 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { RefObject } from "react";
+import { useScrollStore } from "@/hooks/useScrollStore";
 
 interface RootLayoutProps {
-  scrollContainerRef: RefObject<HTMLDivElement | null>;
   children: React.ReactNode;
 }
 
-export const RootLayout = ({
-  scrollContainerRef,
-  children,
-}: RootLayoutProps) => (
-  <main className="flex flex-col items-center justify-center bg-background text-foreground">
-    <ScrollArea className="h-dvh w-full overflow-hidden">
-      <div ref={scrollContainerRef as RefObject<HTMLDivElement>}>
-        <div className="mx-auto h-dvh flex flex-col items-between">
+export const RootLayout = ({ children }: RootLayoutProps) => {
+  const setScrollPosition = useScrollStore((state) => state.setScrollPosition);
+
+  return (
+    <main className="flex flex-col items-center justify-center bg-background text-foreground">
+      <ScrollArea
+        className="h-dvh w-full overflow-hidden"
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        onScrollCapture={(event: any) => {
+          setScrollPosition(event.target.scrollTop);
+        }}
+      >
+        <div className="mx-auto h-dvh flex flex-col items-between p-6">
           {children}
         </div>
-      </div>
-    </ScrollArea>
-  </main>
-);
+      </ScrollArea>
+    </main>
+  );
+};

@@ -10,7 +10,7 @@ function slugify(str: string): string {
 }
 
 export async function loadConfig(): Promise<Config> {
-  const res = await fetch("/config/linktree.yaml");
+  const res = await fetch("/config.yaml");
   const text = await res.text();
   const raw = yaml.load(text) as Omit<Config, "items"> & {
     items: Omit<LinkItem, "id">[];

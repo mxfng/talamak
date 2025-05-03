@@ -2,14 +2,13 @@ import { ReactNode, useRef } from "react";
 import { MasonryGrid } from "@/components/masonry/masonry-grid";
 import { LinkItem } from "@/types";
 import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface MasonryLayoutProps {
   items: LinkItem[];
   renderItem: (item: LinkItem) => ReactNode;
   emptyMessage?: string;
-  maxHeight?: string | number;
   className?: string;
-  useInternalScrollArea?: boolean;
 }
 
 export function MasonryLayout({
@@ -25,13 +24,37 @@ export function MasonryLayout({
       {items.length > 0 ? (
         <div ref={masonryRef}>
           <MasonryGrid columns={1}>
-            {items.map((item) => (
-              <div key={item.label}>{renderItem(item)}</div>
-            ))}
+            <AnimatePresence mode="popLayout">
+              {items.map((item) => (
+                <motion.div
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.98, y: 8 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.96, y: -4 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 20,
+                    mass: 0.6,
+                  }}
+                >
+                  {renderItem(item)}
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </MasonryGrid>
         </div>
       ) : (
-        <p className="text-center text-muted-foreground">{emptyMessage}</p>
+        <motion.p
+          key="empty"
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -4 }}
+          className="text-center text-muted-foreground"
+        >
+          {emptyMessage}
+        </motion.p>
       )}
     </div>
   );
