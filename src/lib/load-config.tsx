@@ -20,6 +20,7 @@ export async function loadConfig(): Promise<Config> {
     name: raw.name,
     bio: raw.bio,
     avatar: raw.avatar,
+    toolbar: raw.toolbar ?? false,
     items: raw.items.map((item, itemIndex) => {
       const slug = slugify(item.label);
       const itemId = `${itemIndex}-${slug}`;

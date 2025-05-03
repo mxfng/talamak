@@ -54,11 +54,11 @@ export function LinkFillCard({ item, className, style }: LinkFillCardProps) {
           src={item.image.src}
           alt={item.label}
           onError={() => setImgError(true)}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 to-transparent p-2">
           <div className="w-full flex items-center justify-start p-4">
-            <span className="w-2xl text-start text-primary font-medium tracking-wide text-lg truncate">
+            <span className="w-2xl text-start text-primary font-medium tracking-wide text-2xl truncate">
               {item.label}
             </span>
           </div>

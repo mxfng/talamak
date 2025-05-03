@@ -2,9 +2,11 @@ import { useScrollStore } from "@/hooks/useScrollStore";
 import { cn } from "@/lib/utils";
 
 interface ProfileHeaderProps {
-  avatar: string;
+  avatar?: string;
   name: string;
-  bio: string;
+  bio?: string;
+  animated?: boolean;
+  className?: string;
 }
 
 // 🎛️ Constants for easy tuning
@@ -20,17 +22,28 @@ const FONT_MIN = 24;
 const PADDING_MAX = 18;
 const PADDING_MIN = 0;
 
-export function ProfileHeader({ avatar, name, bio }: ProfileHeaderProps) {
+export function ProfileHeader({
+  avatar,
+  name,
+  bio,
+  animated = true,
+  className,
+}: ProfileHeaderProps) {
   const scrollY = useScrollStore((state) => state.scrollPosition);
 
-  const clamped = Math.min(Math.max(scrollY, 0), SCROLL_RANGE);
-  const factor = clamped / SCROLL_RANGE;
-  const compact = factor >= COMPACT_THRESHOLD;
+  const clamped = animated ? Math.min(Math.max(scrollY, 0), SCROLL_RANGE) : 0;
+  const factor = animated ? clamped / SCROLL_RANGE : 0;
+  const compact = animated && factor >= COMPACT_THRESHOLD;
 
-  const avatarSize = AVATAR_MAX - (AVATAR_MAX - AVATAR_MIN) * factor;
-  const fontSize = FONT_MAX - (FONT_MAX - FONT_MIN) * factor;
-
-  const paddingY = PADDING_MAX - (PADDING_MAX - PADDING_MIN) * factor;
+  const avatarSize = animated
+    ? AVATAR_MAX - (AVATAR_MAX - AVATAR_MIN) * factor
+    : AVATAR_MAX;
+  const fontSize = animated
+    ? FONT_MAX - (FONT_MAX - FONT_MIN) * factor
+    : FONT_MAX;
+  const paddingY = animated
+    ? PADDING_MAX - (PADDING_MAX - PADDING_MIN) * factor
+    : PADDING_MAX;
 
   return (
     <div
@@ -38,25 +51,28 @@ export function ProfileHeader({ avatar, name, bio }: ProfileHeaderProps) {
         "w-full transition-all duration-75 ease-out",
         compact &&
           "bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/60",
+        className,
       )}
       style={{
         paddingBottom: `${paddingY}px`,
       }}
     >
       <div className="flex items-center justify-between transition-all duration-75 ease-out">
-        <div
-          className={cn(
-            "overflow-hidden transition-all duration-75 ease-out",
-            compact ? "rounded-full" : "rounded-4xl",
-          )}
-          style={{ width: avatarSize, height: avatarSize }}
-        >
-          <img
-            src={avatar}
-            alt={name}
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
+        {avatar && (
+          <div
+            className={cn(
+              "overflow-hidden transition-all duration-75 ease-out",
+              compact ? "rounded-full" : "rounded-4xl",
+            )}
+            style={{ width: avatarSize, height: avatarSize }}
+          >
+            <img
+              src={avatar}
+              alt={name}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+        )}
 
         <div className="ml-4 flex-1">
           <h1
@@ -69,7 +85,7 @@ export function ProfileHeader({ avatar, name, bio }: ProfileHeaderProps) {
             {name}
           </h1>
 
-          {factor < 0.6 && (
+          {(animated ? factor < 0.6 : true) && bio && (
             <p className="text-muted-foreground text-sm leading-tight max-w-xs mt-1 transition-opacity duration-200">
               {bio}
             </p>

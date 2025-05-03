@@ -42,21 +42,32 @@ export default function RootPage() {
     <RootLayout>
       {/* Main content */}
       <div className="flex-1 w-full max-w-2xl mx-auto">
-        <div className="sticky top-0 z-10 bg-background py-4 flex flex-col gap-6">
+        <div className="md:sticky md:top-0 z-10 bg-background py-4 flex flex-col gap-6">
           <ProfileHeader
             avatar={config.avatar}
             name={config.name}
             bio={config.bio}
+            animated={false}
+            className="md:hidden"
+          />
+          <ProfileHeader
+            avatar={config.avatar}
+            name={config.name}
+            bio={config.bio}
+            animated={true}
+            className="hidden md:block"
           />
           {/* Desktop SearchBar (hidden on mobile) */}
-          <div className="hidden md:block">
-            <Toolbar />
-          </div>
+          {config.toolbar && (
+            <div className="hidden md:block">
+              <Toolbar />
+            </div>
+          )}
         </div>
 
         <div
           className={cn(
-            "w-full flex items-center justify-center",
+            "w-full flex flex-col items-center justify-center",
             "mb-20 md:mb-0",
           )}
         >
@@ -67,25 +78,41 @@ export default function RootPage() {
               searchQuery ? "No matching items found" : "No items found."
             }
           />
+          {searchQuery.length == 0 && (
+            <div className="w-full flex justify-center items-center p-6 mb-6 text-muted-foreground">
+              Made with{" "}
+              <a
+                href="https://github.com/mxfng/talamak"
+                className="text-primary hover:underline pl-1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Talamak
+              </a>
+              .
+            </div>
+          )}
         </div>
       </div>
 
       {/* Mobile SearchBar (fixed + animated) */}
-      <div className="md:hidden">
-        <motion.div
-          className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-2xl"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.4,
-            ease: [0.16, 1, 0.3, 1],
-            delay: 0.2,
-          }}
-        >
-          <Toolbar />
-        </motion.div>
-        <div className="fixed bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background via-background/80 to-transparent" />
-      </div>
+      {config.toolbar && (
+        <div className="md:hidden">
+          <motion.div
+            className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-2xl"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.4,
+              ease: [0.16, 1, 0.3, 1],
+              delay: 0.2,
+            }}
+          >
+            <Toolbar />
+          </motion.div>
+          <div className="fixed bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        </div>
+      )}
     </RootLayout>
   );
 }

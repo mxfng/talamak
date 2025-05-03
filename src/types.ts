@@ -40,7 +40,8 @@ export interface LinkItem {
 
 export interface Config {
   name: string;
-  bio: string;
-  avatar: string;
+  bio?: string;
+  avatar?: string;
+  toolbar: boolean;
   items: LinkItem[];
 }
