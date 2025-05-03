@@ -1,0 +1,132 @@
+name: Toko Makai
+bio: Skibidi toilet jack
+avatar: /avatar.jpg
+
+links:
+  - label: Spotify
+    url: https://open.spotify.com/artist/123456
+    icon: spotify
+
+  - label: YouTube
+    url: https://youtube.com/tokomakai
+    icon: youtube
+
+  - label: Instagram
+    url: https://instagram.com/tokomakai
+    icon: instagram
+
+  - label: Website
+    url: https://studiomakai.net
+    icon: globe
+
+  - label: Twitter
+    url: https://twitter.com/tokomakai
+    icon: twitter
+
+  - label: TikTok
+    url: https://tiktok.com/@tokomakai
+    icon: tiktok
+
+  - label: SoundCloud
+    url: https://soundcloud.com/tokomakai
+    icon: soundcloud
+
+  - label: Bandcamp
+    url: https://tokomakai.bandcamp.com
+    icon: bandcamp
+
+  - label: Patreon
+    url: https://patreon.com/tokomakai
+    icon: patreon
+
+  - label: Discord
+    url: https://discord.gg/tokomakai
+    icon: discord
+
+  - label: GitHub
+    url: https://github.com/tokomakai
+    icon: github
+
+  - label: LinkedIn
+    url: https://linkedin.com/in/tokomakai
+    icon: linkedin
+
+  - label: Twitch
+    url: https://twitch.tv/tokomakai
+    icon: twitch
+
+  - label: Reddit
+    url: https://reddit.com/r/tokomakai
+    icon: reddit
+
+  - label: Email
+    url: mailto:contact@tokomakai.com
+    icon: mail
+
+  - label: Facebook
+    url: https://facebook.com/tokomakai
+    icon: facebook
+
+  - label: Pinterest
+    url: https://pinterest.com/tokomakai
+    icon: pinterest
+
+  - label: Snapchat
+    url: https://snapchat.com/add/tokomakai
+    icon: snapchat
+
+  - label: Telegram
+    url: https://t.me/tokomakai
+    icon: telegram
+
+  - label: WhatsApp
+    url: https://wa.me/1234567890
+    icon: whatsapp
+
+  - label: Apple Music
+    url: https://music.apple.com/artist/tokomakai
+    icon: apple
+
+  - label: Amazon Music
+    url: https://music.amazon.com/artists/tokomakai
+    icon: amazon
+
+  - label: Deezer
+    url: https://deezer.com/artist/tokomakai
+    icon: deezer
+
+  - label: Tidal
+    url: https://tidal.com/artist/tokomakai
+    icon: tidal
+
+  - label: Vimeo
+    url: https://vimeo.com/tokomakai
+    icon: vimeo
+
+  - label: Behance
+    url: https://behance.net/tokomakai
+    icon: behance
+
+  - label: Dribbble
+    url: https://dribbble.com/tokomakai
+    icon: dribbble
+
+  - label: Medium
+    url: https://medium.com/@tokomakai
+    icon: medium
+
+  - label: Tumblr
+    url: https://tokomakai.tumblr.com
+    icon: tumblr
+
+  - label: Mastodon
+    url: https://mastodon.social/@tokomakai
+    icon: mastodon
+
+  - label: Threads
+    url: https://threads.net/@tokomakai
+    icon: threads
+
+  - label: Bluesky
+    url: https://bsky.app/profile/tokomakai
+    icon: bluesky
