@@ -20,7 +20,7 @@ export function MasonryLayout({
   return (
     <>
       {items.length > 0 ? (
-        <div ref={masonryRef}>
+        <div ref={masonryRef} className="w-full">
           <MasonryGrid columns={1}>
             <AnimatePresence mode="popLayout">
               {items.map((item) => (

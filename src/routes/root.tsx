@@ -4,15 +4,18 @@ import { RootLayout } from "@/layouts/root-layout";
 import { Config } from "@/types";
 import { MasonryItem } from "@/components/masonry/masonry-item";
 import { useLoaderData } from "react-router-dom";
-import { useState, useMemo } from "react";
-import Fuse from "fuse.js";
 import { ProfileHeader } from "@/components/profile-header";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { Toolbar } from "@/components/toolbar";
+import { useSearchStore } from "@/hooks/useSearchStore";
+import { useMemo } from "react";
+import Fuse from "fuse.js";
 
 export default function RootPage() {
   const { config } = useLoaderData() as { config: Config };
-  const [searchQuery, setSearchQuery] = useState("");
+  const searchQuery = useSearchStore((state) => state.searchQuery);
+  const setSearchQuery = useSearchStore((state) => state.setSearchQuery);
 
   // Setup fuzzy search with Fuse.js
   const fuse = useMemo(
@@ -49,7 +52,7 @@ export default function RootPage() {
           />
           {/* Desktop SearchBar (hidden on mobile) */}
           <div className="hidden md:block">
-            <SearchBar value={searchQuery} onChange={setSearchQuery} />
+            <Toolbar />
           </div>
         </div>
 
