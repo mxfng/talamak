@@ -3,19 +3,40 @@ import { createBrowserRouter } from "react-router-dom";
 import { loadConfig } from "@/lib/load-config";
 import Fallback from "./components/typography/fallback";
 
-const Root = lazy(() => import("./routes/root"));
+const RootPage = lazy(() => import("./routes/root"));
+const ItemPage = lazy(() => import("./routes/[item-id]"));
 
 export const router = createBrowserRouter([
   {
     path: "/",
     loader: async () => {
-      // Preload the YAML config before serving the route
       const config = await loadConfig();
       return { config };
     },
     element: (
       <Suspense fallback={<Fallback />}>
-        <Root />
+        <RootPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/links/:id",
+    loader: async ({ params }) => {
+      const config = await loadConfig();
+
+      // Extract the index from the start of the ID (e.g., "0-my-item" -> 0)
+      const itemIndex = parseInt(params.id?.split("-")[0] || "0", 10);
+      const item = config.items[itemIndex];
+
+      if (!item) {
+        throw new Response("Not Found", { status: 404 });
+      }
+
+      return { item };
+    },
+    element: (
+      <Suspense fallback={<Fallback />}>
+        <ItemPage />
       </Suspense>
     ),
   },

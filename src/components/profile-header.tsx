@@ -19,7 +19,7 @@ export function ProfileHeader({ avatar, name, bio }: ProfileHeaderProps) {
 
         <div className="text-center">
           <h1 className="font-bold text-2xl">{name}</h1>
-          <p className="text-muted-foreground">{bio}</p>
+          <p className="text-muted-foreground max-w-xs leading-tight">{bio}</p>
         </div>
       </div>
     </div>

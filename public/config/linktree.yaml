@@ -1,83 +1,111 @@
 name: Toko Makai
-bio: Music for motion, moments, and magic.
-avatar: https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=400
+bio: Electronic music producer blending house, funk, and retro vibes.
+avatar: /images/avatar.jpg
 
 items:
-  - type: image
-    label: Spotify
-    src: https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
-    url: https://spotify.com/tokomakai
-    icon: spotify
+  - label: Flowers (Single)
+    image:
+      type: fill
+      src: /images/flowers-cover.jpg
+    links:
+      - label: Spotify
+        url: https://open.spotify.com/track/abc123
+        icon: spotify
+      - label: Apple Music
+        url: https://music.apple.com/us/album/abc123
+        icon: apple_music
+      - label: YouTube
+        url: https://youtube.com/watch?v=xyz123
+        icon: youtube
 
-  - type: image
-    label: Instagram
-    src: https://images.unsplash.com/photo-1554189097-ffe88e998a2b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
-    url: https://instagram.com/tokomakai
-    icon: instagram
+  - label: Socials
+    image:
+      type: icon
+      src: /images/tokomakai-avatar.png
+    links:
+      - label: Instagram
+        url: https://instagram.com/tokomakai
+        icon: instagram
+      - label: TikTok
+        url: https://tiktok.com/@tokomakai
+        icon: tiktok
+      - label: GitHub
+        url: https://github.com/tokomakai
+        icon: github
 
-  - type: image
-    label: Press Photo
-    src: https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
-    url: https://instagram.com/tokomakai
+  - label: Website
+    links:
+      - label: Studio Makai
+        url: https://studiomakai.net
+        icon: website
 
-  - type: text
-    label: New Single
-    title: Painted Lady
-    content: My new track is out now on all platforms.
-    url: https://open.spotify.com/track/paintedlady
+  - label: Barcelona
+    image:
+      type: icon
+      src: https://images.unsplash.com/photo-1579282240050-352db0a14c21?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmFyY2Vsb25hfGVufDB8fDB8fHww
+    links:
+      - label: My favorite place
+        url: https://www.google.com/maps/place/Barcelona,+Spain
+        icon: link
+  - label: Let You In Again
+    image:
+      type: fill
+      src: https://images.unsplash.com/photo-1558769132-cb1aea458c5c?w=1600&auto=format&fit=crop&q=60
+    links:
+      - label: Spotify
+        url: https://open.spotify.com/track/let-you-in-again
+        icon: spotify
+      - label: YouTube Music
+        url: https://music.youtube.com/playlist?list=let-you-in-again
+        icon: youtube_music
 
-  - type: image
-    label: YouTube
-    src: https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
-    url: https://youtube.com/tokomakai
-    icon: youtube
+  - label: Portfolio
+    image:
+      type: icon
+      src: /images/portfolio-icon.png
+    links:
+      - label: GitHub
+        url: https://github.com/tokomakai
+        icon: github
+      - label: Studio Makai
+        url: https://studiomakai.net
+        icon: website
+      - label: LinkedIn
+        url: https://linkedin.com/in/tokomakai
+        icon: link
 
-  - type: image
-    label: SoundCloud
-    src: https://images.unsplash.com/photo-1516223725307-6f76b9ec8742?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
-    url: https://soundcloud.com/tokomakai
-    icon: soundcloud
+  - label: Uber (Track)
+    image:
+      type: fill
+      src: https://images.unsplash.com/photo-1517849845537-4d257902454a?w=1600&auto=format&fit=crop&q=60
+    links:
+      - label: Spotify
+        url: https://open.spotify.com/track/uber
+        icon: spotify
+      - label: Beatport
+        url: https://www.beatport.com/track/uber
+        icon: beatport
+      - label: Bandcamp
+        url: https://tokomakai.bandcamp.com/track/uber
+        icon: bandcamp
 
-  - type: text
-    label: About
-    title: Artist Bio
-    content: Toko Makai is an electronic music producer creating atmospheric soundscapes and emotive melodies.
-    url: https://tokomakai.com/about
+  - label: About Me
+    links:
+      - label: Biography
+        url: https://studiomakai.net/about
+        icon: info
 
-  - type: image
-    label: Live Performance
-    src: https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
-    url: https://youtube.com/tokomakai/live
-
-  - type: text
-    label: Latest EP
-    title: Midnight Dreams
-    content: Stream my latest EP featuring 5 new tracks of ambient electronica.
-    url: https://open.spotify.com/album/midnightdreams
-
-  - type: image
-    label: Bandcamp
-    src: https://images.unsplash.com/photo-1574169208507-84376144848b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
-    url: https://tokomakai.bandcamp.com
-    icon: bandcamp
-
-  - type: image
-    label: Studio Setup
-    src: https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
-    url: https://instagram.com/tokomakai/studio
-
-  - type: image
-    label: Tour Dates
-    src: https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
-    url: https://tokomakai.com/tour
-
-  - type: image
-    label: TikTok
-    src: https://images.unsplash.com/photo-1631281956016-3cdc1b2fe5fb?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
-    url: https://tiktok.com/@tokomakai
-    icon: tiktok
-
-  - type: image
-    label: Merch Store
-    src: https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
-    url: https://tokomakai.com/store
+  - label: Painted Lady
+    image:
+      type: fill
+      src: https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=1600&auto=format&fit=crop&q=60
+    links:
+      - label: Spotify
+        url: https://open.spotify.com/track/painted-lady
+        icon: spotify
+      - label: YouTube
+        url: https://youtube.com/watch?v=paintedlady
+        icon: youtube
+      - label: Apple Music
+        url: https://music.apple.com/us/album/painted-lady
+        icon: apple_music

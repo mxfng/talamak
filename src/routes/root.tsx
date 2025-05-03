@@ -1,15 +1,15 @@
 import { SearchBar } from "@/components/search-bar";
-import { MosaicLayout } from "@/components/mosaic-layout";
+import { MasonryLayout } from "@/components/masonry/masonry-layout";
 import { ProfileHeader } from "@/components/profile-header";
 import { RootLayout } from "@/layouts/root-layout";
-import { LinktreeConfig, LinktreeItem } from "@/types";
-import { MosaicItemComponent } from "@/components/mosaic-item-component";
+import { Config } from "@/types";
+import { MasonryItem } from "@/components/masonry/masonry-item";
 import { useLoaderData } from "react-router-dom";
 import { useState, useMemo, useRef, useEffect } from "react";
 import Fuse from "fuse.js";
 
-export default function App() {
-  const { config } = useLoaderData() as { config: LinktreeConfig };
+export default function RootPage() {
+  const { config } = useLoaderData() as { config: Config };
   const [searchQuery, setSearchQuery] = useState("");
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -47,11 +47,6 @@ export default function App() {
 
   if (!config) return <p>Loading...</p>;
 
-  // Render function for mosaic items
-  const renderMosaicItem = (item: LinktreeItem) => (
-    <MosaicItemComponent item={item} />
-  );
-
   return (
     <RootLayout scrollContainerRef={scrollContainerRef}>
       {/* Sticky header */}
@@ -67,9 +62,9 @@ export default function App() {
       {/* Main content */}
       <div className="flex-1 pt-56">
         <div className="w-full flex items-center justify-center">
-          <MosaicLayout
+          <MasonryLayout
             items={filteredItems}
-            renderItem={renderMosaicItem}
+            renderItem={(item) => <MasonryItem item={item} />}
             emptyMessage={
               searchQuery ? "No matching items found" : "No items found."
             }

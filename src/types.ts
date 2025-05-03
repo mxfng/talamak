@@ -1,30 +1,46 @@
-interface BaseItem {
-  label: string;
-  url?: string;
-}
+export type LinkIcon =
+  | "spotify"
+  | "apple_music"
+  | "youtube"
+  | "youtube_music"
+  | "amazon_music"
+  | "beatport"
+  | "bandcamp"
+  | "soundcloud"
+  | "tiktok"
+  | "instagram"
+  | "x"
+  | "facebook"
+  | "threads"
+  | "github"
+  | "website"
+  | "info"
+  | "link";
 
-export interface LinkItem extends BaseItem {
-  type: "link";
-  icon?: string;
-}
+export type LinkImageType = "fill" | "icon";
 
-export interface ImageItem extends BaseItem {
-  type: "image";
+export interface LinkImage {
+  type: LinkImageType;
   src: string;
-  icon?: string;
 }
 
-export interface TextItem extends BaseItem {
-  type: "text";
-  title?: string;
-  content: string;
+export interface Link {
+  id: string;
+  label: string;
+  url: string;
+  icon?: LinkIcon;
 }
 
-export type LinktreeItem = LinkItem | ImageItem | TextItem;
+export interface LinkItem {
+  id: string;
+  label: string;
+  links: Link[];
+  image?: LinkImage;
+}
 
-export interface LinktreeConfig {
+export interface Config {
   name: string;
   bio: string;
   avatar: string;
-  items: LinktreeItem[];
+  items: LinkItem[];
 }
