@@ -1,0 +1,139 @@
+name: Toko Makai
+bio: Electronic music producer blending house, funk, and retro vibes.
+avatar: /images/avatar.jpg
+
+items:
+  - label: Flowers (Single)
+    image:
+      type: fill
+      src: /images/flowers-cover.jpg
+    links:
+      - label: Spotify
+        url: https://open.spotify.com/track/abc123
+        icon: spotify
+      - label: Apple Music
+        url: https://music.apple.com/us/album/abc123
+        icon: apple_music
+      - label: YouTube
+        url: https://youtube.com/watch?v=xyz123
+        icon: youtube
+
+  - label: Instagram
+    links:
+      - label: Instagram
+        url: https://instagram.com/tokomakai
+        icon: instagram
+
+  - label: Socials
+    image:
+      type: icon
+      src: /images/tokomakai-avatar.png
+    links:
+      - label: Instagram
+        url: https://instagram.com/tokomakai
+        icon: instagram
+      - label: TikTok
+        url: https://tiktok.com/@tokomakai
+        icon: tiktok
+      - label: GitHub
+        url: https://github.com/tokomakai
+        icon: github
+
+  - label: Website
+    links:
+      - label: Studio Makai
+        url: https://studiomakai.net
+        icon: website
+
+  - label: Barcelona
+    image:
+      type: icon
+      src: https://images.unsplash.com/photo-1579282240050-352db0a14c21?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmFyY2Vsb25hfGVufDB8fDB8fHww
+    links:
+      - label: My favorite place
+        url: https://www.google.com/maps/place/Barcelona,+Spain
+        icon: link
+  - label: Let You In Again
+    image:
+      type: fill
+      src: https://images.unsplash.com/photo-1579282240050-352db0a14c21?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmFyY2Vsb25hfGVufDB8fDB8fHww
+    links:
+      - label: Spotify
+        url: https://open.spotify.com/track/let-you-in-again
+        icon: spotify
+      - label: YouTube Music
+        url: https://music.youtube.com/playlist?list=let-you-in-again
+        icon: youtube_music
+
+  - label: Let You In Again With a very long title this is a long title everything it's longer than I think you'd want to make a title
+    image:
+      type: fill
+      src: https://plus.unsplash.com/premium_photo-1708589334326-b7e018a54591?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+    links:
+      - label: Spotify
+        url: https://open.spotify.com/track/let-you-in-again
+        icon: spotify
+      - label: Test
+        url: https://test.com/
+
+  - label: Portfolio
+    image:
+      type: icon
+      src: /images/portfolio-icon.png
+    links:
+      - label: GitHub
+        url: https://github.com/tokomakai
+        icon: github
+      - label: Studio Makai
+        url: https://studiomakai.net
+        icon: website
+      - label: LinkedIn
+        url: https://linkedin.com/in/tokomakai
+        icon: link
+
+  - label: Uber (Track)
+    image:
+      type: fill
+      src: https://plus.unsplash.com/premium_photo-1689370875678-804d07de959f?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmFyY2Vsb25hfGVufDB8fDB8fHww
+    links:
+      - label: Spotify
+        url: https://open.spotify.com/track/uber
+        icon: spotify
+      - label: Beatport
+        url: https://www.beatport.com/track/uber
+        icon: beatport
+      - label: Bandcamp
+        url: https://tokomakai.bandcamp.com/track/uber
+        icon: bandcamp
+
+  - label: About Me
+    links:
+      - label: Biography
+        url: https://studiomakai.net/about
+        icon: info
+
+  - label: Painted Lady
+    image:
+      type: fill
+      src: https://images.unsplash.com/photo-1584090170129-4d74e3634910?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJlYXN0fGVufDB8fDB8fHww
+    links:
+      - label: Spotify
+        url: https://open.spotify.com/track/painted-lady
+        icon: spotify
+      - label: YouTube
+        url: https://youtube.com/watch?v=paintedlady
+        icon: youtube
+      - label: Apple Music
+        url: https://music.apple.com/us/album/painted-lady
+        icon: apple_music
+
+  - label: Let You In Again
+    image:
+      type: fill
+      src: https://plus.unsplash.com/premium_photo-1708589334326-b7e018a54591?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+    links:
+      - label: Spotify
+        url: https://open.spotify.com/track/let-you-in-again
+        icon: spotify
+      - label: Test
+        url: https://test.com/
