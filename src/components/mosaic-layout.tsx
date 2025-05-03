@@ -1,12 +1,12 @@
 import { ReactNode, useState, useEffect, useRef } from "react";
 import { MosaicGrid } from "@/components/mosaic-grid";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Link as LinkType } from "@/types";
+import { LinktreeItem } from "@/types";
 import { cn } from "@/lib/utils";
 
 interface MosaicLayoutProps {
-  links: LinkType[];
-  renderItem: (link: LinkType) => ReactNode;
+  items: LinktreeItem[];
+  renderItem: (item: LinktreeItem) => ReactNode;
   emptyMessage?: string;
   maxHeight?: string | number;
   className?: string;
@@ -14,7 +14,7 @@ interface MosaicLayoutProps {
 }
 
 export function MosaicLayout({
-  links,
+  items,
   renderItem,
   emptyMessage = "No items found.",
   maxHeight = "calc(100vh - 300px)",
@@ -133,15 +133,15 @@ export function MosaicLayout({
       clearTimeout(timeoutId);
       window.removeEventListener("resize", handleResize);
     };
-  }, [links, columns]); // Re-run when links or columns change
+  }, [items, columns]); // Re-run when links or columns change
 
   const content = (
     <>
-      {links.length > 0 ? (
+      {items.length > 0 ? (
         <div ref={masonryRef}>
           <MosaicGrid columns={columns} gap={2}>
-            {links.map((link) => (
-              <div key={link.label}>{renderItem(link)}</div>
+            {items.map((item) => (
+              <div key={item.label}>{renderItem(item)}</div>
             ))}
           </MosaicGrid>
         </div>

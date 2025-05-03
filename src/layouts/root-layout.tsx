@@ -13,7 +13,7 @@ export const RootLayout = ({
   <main className="flex flex-col items-center justify-center bg-background text-foreground">
     <ScrollArea className="h-dvh w-full overflow-hidden">
       <div ref={scrollContainerRef as RefObject<HTMLDivElement>}>
-        <div className="mx-auto max-w-2xl h-dvh flex flex-col items-between">
+        <div className="mx-auto h-dvh flex flex-col items-between">
           {children}
         </div>
       </div>

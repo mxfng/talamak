@@ -1,9 +1,9 @@
 import { SearchBar } from "@/components/search-bar";
-import { MosaicItem } from "@/components/mosaic-grid";
 import { MosaicLayout } from "@/components/mosaic-layout";
 import { ProfileHeader } from "@/components/profile-header";
 import { RootLayout } from "@/layouts/root-layout";
-import { Link, LinktreeConfig } from "@/types";
+import { LinktreeConfig, LinktreeItem } from "@/types";
+import { MosaicItemComponent } from "@/components/mosaic-item-component";
 import { useLoaderData } from "react-router-dom";
 import { useState, useMemo, useRef, useEffect } from "react";
 import Fuse from "fuse.js";
@@ -27,34 +27,29 @@ export default function App() {
   // Setup fuzzy search with Fuse.js
   const fuse = useMemo(
     () =>
-      new Fuse(config?.links || [], {
+      new Fuse(config?.items || [], {
         keys: ["label", "url"],
         threshold: 0.2,
         includeScore: true,
       }),
-    [config?.links],
+    [config?.items],
   );
 
-  // Filter links based on search query
-  const filteredLinks = useMemo(() => {
-    if (!searchQuery.trim() || !config?.links) {
-      return config?.links || [];
+  // Filter items based on search query
+  const filteredItems = useMemo(() => {
+    if (!searchQuery.trim() || !config?.items) {
+      return config?.items || [];
     }
 
     const results = fuse.search(searchQuery);
     return results.map((result) => result.item);
-  }, [fuse, searchQuery, config?.links]);
+  }, [fuse, searchQuery, config?.items]);
 
   if (!config) return <p>Loading...</p>;
 
   // Render function for mosaic items
-  const renderMosaicItem = (link: Link) => (
-    <MosaicItem
-      href={link.url}
-      className="h-full flex items-center justify-center font-medium"
-    >
-      {link.label}
-    </MosaicItem>
+  const renderMosaicItem = (item: LinktreeItem) => (
+    <MosaicItemComponent item={item} />
   );
 
   return (
@@ -73,10 +68,10 @@ export default function App() {
       <div className="flex-1 pt-56">
         <div className="w-full flex items-center justify-center">
           <MosaicLayout
-            links={filteredLinks}
+            items={filteredItems}
             renderItem={renderMosaicItem}
             emptyMessage={
-              searchQuery ? "No matching links found" : "No links found."
+              searchQuery ? "No matching items found" : "No items found."
             }
             useInternalScrollArea={false}
             className="max-w-lg px-6"
@@ -91,7 +86,7 @@ export default function App() {
           <SearchBar
             value={searchQuery}
             onChange={setSearchQuery}
-            placeholder="Search links..."
+            placeholder="Search items..."
             className="max-w-lg"
           />
         </div>

@@ -1,132 +1,72 @@
 name: Toko Makai
-bio: Skibidi toilet jack
-avatar: /avatar.jpg
+bio: Music for motion, moments, and magic.
+avatar: https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=400
 
-links:
+items:
   - label: Spotify
-    url: https://open.spotify.com/artist/123456
+    url: https://spotify.com/tokomakai
     icon: spotify
-
-  - label: YouTube
-    url: https://youtube.com/tokomakai
-    icon: youtube
 
   - label: Instagram
     url: https://instagram.com/tokomakai
     icon: instagram
 
-  - label: Website
-    url: https://studiomakai.net
-    icon: globe
+  - type: image
+    label: Press Photo
+    src: https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
+    url: https://instagram.com/tokomakai
 
-  - label: Twitter
-    url: https://twitter.com/tokomakai
-    icon: twitter
+  - type: text
+    label: New Single
+    title: Painted Lady
+    content: My new track is out now on all platforms.
+    url: https://open.spotify.com/track/paintedlady
 
-  - label: TikTok
-    url: https://tiktok.com/@tokomakai
-    icon: tiktok
+  - label: YouTube
+    url: https://youtube.com/tokomakai
+    icon: youtube
 
   - label: SoundCloud
     url: https://soundcloud.com/tokomakai
     icon: soundcloud
 
+  - type: text
+    label: About
+    title: Artist Bio
+    content: Toko Makai is an electronic music producer creating atmospheric soundscapes and emotive melodies.
+    url: https://tokomakai.com/about
+
+  - type: image
+    label: Live Performance
+    src: https://images.unsplash.com/photo-1501386761578-eac5c94b800a?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
+    url: https://youtube.com/tokomakai/live
+
+  - type: text
+    label: Latest EP
+    title: Midnight Dreams
+    content: Stream my latest EP featuring 5 new tracks of ambient electronica.
+    url: https://open.spotify.com/album/midnightdreams
+
   - label: Bandcamp
     url: https://tokomakai.bandcamp.com
     icon: bandcamp
 
-  - label: Patreon
-    url: https://patreon.com/tokomakai
-    icon: patreon
+  - type: image
+    label: Studio Setup
+    src: https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
+    url: https://instagram.com/tokomakai/studio
 
-  - label: Discord
-    url: https://discord.gg/tokomakai
-    icon: discord
+  - type: text
+    label: Tour Dates
+    title: Upcoming Shows
+    content: Catch me live at these upcoming venues across the country.
+    url: https://tokomakai.com/tour
 
-  - label: GitHub
-    url: https://github.com/tokomakai
-    icon: github
+  - label: TikTok
+    url: https://tiktok.com/@tokomakai
+    icon: tiktok
 
-  - label: LinkedIn
-    url: https://linkedin.com/in/tokomakai
-    icon: linkedin
-
-  - label: Twitch
-    url: https://twitch.tv/tokomakai
-    icon: twitch
-
-  - label: Reddit
-    url: https://reddit.com/r/tokomakai
-    icon: reddit
-
-  - label: Email
-    url: mailto:contact@tokomakai.com
-    icon: mail
-
-  - label: Facebook
-    url: https://facebook.com/tokomakai
-    icon: facebook
-
-  - label: Pinterest
-    url: https://pinterest.com/tokomakai
-    icon: pinterest
-
-  - label: Snapchat
-    url: https://snapchat.com/add/tokomakai
-    icon: snapchat
-
-  - label: Telegram
-    url: https://t.me/tokomakai
-    icon: telegram
-
-  - label: WhatsApp
-    url: https://wa.me/1234567890
-    icon: whatsapp
-
-  - label: Apple Music
-    url: https://music.apple.com/artist/tokomakai
-    icon: apple
-
-  - label: Amazon Music
-    url: https://music.amazon.com/artists/tokomakai
-    icon: amazon
-
-  - label: Deezer
-    url: https://deezer.com/artist/tokomakai
-    icon: deezer
-
-  - label: Tidal
-    url: https://tidal.com/artist/tokomakai
-    icon: tidal
-
-  - label: Vimeo
-    url: https://vimeo.com/tokomakai
-    icon: vimeo
-
-  - label: Behance
-    url: https://behance.net/tokomakai
-    icon: behance
-
-  - label: Dribbble
-    url: https://dribbble.com/tokomakai
-    icon: dribbble
-
-  - label: Medium
-    url: https://medium.com/@tokomakai
-    icon: medium
-
-  - label: Tumblr
-    url: https://tokomakai.tumblr.com
-    icon: tumblr
-
-  - label: Mastodon
-    url: https://mastodon.social/@tokomakai
-    icon: mastodon
-
-  - label: Threads
-    url: https://threads.net/@tokomakai
-    icon: threads
-
-  - label: Bluesky
-    url: https://bsky.app/profile/tokomakai
-    icon: bluesky
+  - type: image
+    label: Merch Store
+    src: https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800
+    url: https://tokomakai.com/store
