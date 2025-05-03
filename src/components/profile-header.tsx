@@ -14,11 +14,11 @@ const COMPACT_THRESHOLD = 0.8;
 const AVATAR_MAX = 120;
 const AVATAR_MIN = 64;
 
-const PADDING_MAX = 32;
-const PADDING_MIN = 0;
-
 const FONT_MAX = 28;
 const FONT_MIN = 24;
+
+const PADDING_MAX = 18;
+const PADDING_MIN = 0;
 
 export function ProfileHeader({ avatar, name, bio }: ProfileHeaderProps) {
   const scrollY = useScrollStore((state) => state.scrollPosition);
@@ -28,8 +28,9 @@ export function ProfileHeader({ avatar, name, bio }: ProfileHeaderProps) {
   const compact = factor >= COMPACT_THRESHOLD;
 
   const avatarSize = AVATAR_MAX - (AVATAR_MAX - AVATAR_MIN) * factor;
-  const paddingY = PADDING_MAX - (PADDING_MAX - PADDING_MIN) * factor;
   const fontSize = FONT_MAX - (FONT_MAX - FONT_MIN) * factor;
+
+  const paddingY = PADDING_MAX - (PADDING_MAX - PADDING_MIN) * factor;
 
   return (
     <div
@@ -39,7 +40,6 @@ export function ProfileHeader({ avatar, name, bio }: ProfileHeaderProps) {
           "bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/60",
       )}
       style={{
-        paddingTop: `${paddingY}px`,
         paddingBottom: `${paddingY}px`,
       }}
     >

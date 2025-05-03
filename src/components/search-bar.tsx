@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Search } from "lucide-react";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
 
 interface SearchBarProps {
   placeholder?: string;
@@ -10,38 +10,53 @@ interface SearchBarProps {
 }
 
 export function SearchBar({
-  placeholder = "Search...",
-  value,
+  placeholder = "Search my links",
+  value = "",
   onChange,
   className,
 }: SearchBarProps) {
+  const [focused, setFocused] = useState(false);
+  const isActive = focused || value.length > 0;
+  const inputRef = useRef<HTMLInputElement>(null);
+
   return (
-    <motion.div
-      className="w-full flex items-center justify-center"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.2, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+    <div
+      className={cn(
+        "relative w-full h-14 rounded-2xl bg-secondary/80 text-secondary-foreground backdrop-blur-md shadow-lg overflow-hidden",
+        "transition-all duration-500 ease-in-out",
+        "focus-within:shadow-xl",
+        className,
+      )}
+      onClick={() => inputRef.current?.focus()}
     >
       <div
         className={cn(
-          "relative w-full h-12 border-0 bg-secondary/80 text-secondary-foreground rounded-2xl flex flex-row items-center gap-2 backdrop-blur-md shadow-lg",
-          className,
+          "absolute inset-0 flex items-center gap-2 px-4 transition-all duration-500 ease-in-out",
+          isActive ? "justify-start scale-100" : "justify-center scale-105",
         )}
       >
-        <div className="pl-4 pr-2">
-          <Search className="h-5 w-5 stroke-[2.5px] text-muted-foreground" />
-        </div>
+        <Search
+          className={cn(
+            "transition-all duration-500 ease-in-out",
+            isActive
+              ? "h-5 w-5 mr-2 text-muted-foreground"
+              : "h-7 w-7 text-foreground",
+          )}
+        />
         <input
+          ref={inputRef}
           type="search"
           placeholder={placeholder}
           value={value}
           onChange={(e) => onChange?.(e.target.value)}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
           className={cn(
-            "w-full h-full outline-none bg-transparent text-base",
-            "focus:ring-0 focus:outline-none",
+            "bg-transparent outline-none border-0 text-base placeholder:text-muted-foreground transition-all duration-500 ease-in-out",
+            isActive ? "opacity-100 w-full" : "opacity-0 w-0 cursor-pointer",
           )}
         />
       </div>
-    </motion.div>
+    </div>
   );
 }

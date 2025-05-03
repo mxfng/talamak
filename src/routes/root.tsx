@@ -7,6 +7,8 @@ import { useLoaderData } from "react-router-dom";
 import { useState, useMemo } from "react";
 import Fuse from "fuse.js";
 import { ProfileHeader } from "@/components/profile-header";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export default function RootPage() {
   const { config } = useLoaderData() as { config: Config };
@@ -38,37 +40,50 @@ export default function RootPage() {
   return (
     <RootLayout>
       {/* Main content */}
-      <div className="flex-1">
-        <div className="sticky top-0 z-10 bg-background max-w-lg py-4 mx-auto">
+      <div className="flex-1 w-full max-w-2xl mx-auto">
+        <div className="sticky top-0 z-10 bg-background py-4 flex flex-col gap-6">
           <ProfileHeader
             avatar={config.avatar}
             name={config.name}
             bio={config.bio}
           />
+          {/* Desktop SearchBar (hidden on mobile) */}
+          <div className="hidden md:block">
+            <SearchBar value={searchQuery} onChange={setSearchQuery} />
+          </div>
         </div>
-        <div className="w-full flex items-center justify-center">
+
+        <div
+          className={cn(
+            "w-full flex items-center justify-center",
+            "mb-20 md:mb-0",
+          )}
+        >
           <MasonryLayout
             items={filteredItems}
             renderItem={(item) => <MasonryItem item={item} />}
             emptyMessage={
               searchQuery ? "No matching items found" : "No items found."
             }
-            className="max-w-lg"
           />
         </div>
       </div>
 
-      {/* Fixed search bar at bottom with gradient background */}
-      <div className="sticky bottom-0 z-50 pointer-events-none">
-        <div className="h-20 bg-gradient-to-t from-background via-background/60 to-transparent w-full"></div>
-        <div className="absolute bottom-0 left-0 right-0 pb-4 pointer-events-auto">
-          <SearchBar
-            value={searchQuery}
-            onChange={setSearchQuery}
-            placeholder="Search items..."
-            className="max-w-lg"
-          />
-        </div>
+      {/* Mobile SearchBar (fixed + animated) */}
+      <div className="md:hidden">
+        <motion.div
+          className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-2xl"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.4,
+            ease: [0.16, 1, 0.3, 1],
+            delay: 0.2,
+          }}
+        >
+          <SearchBar value={searchQuery} onChange={setSearchQuery} />
+        </motion.div>
+        <div className="fixed bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background via-background/80 to-transparent" />
       </div>
     </RootLayout>
   );
