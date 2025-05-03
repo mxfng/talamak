@@ -24,7 +24,6 @@ export const router = createBrowserRouter([
     loader: async ({ params }) => {
       const config = await loadConfig();
 
-      // Extract the index from the start of the ID (e.g., "0-my-item" -> 0)
       const itemIndex = parseInt(params.id?.split("-")[0] || "0", 10);
       const item = config.items[itemIndex];
 
