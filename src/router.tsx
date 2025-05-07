@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
         throw new Response("Not Found", { status: 404 });
       }
 
-      return { item };
+      return { item, config };
     },
     element: (
       <Suspense fallback={<Fallback />}>

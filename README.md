@@ -47,6 +47,25 @@ avatar: /images/avatar.png
 # Toolbar (experimental, unfinished - do not use in production)
 toolbar: false # only set to true if you're interested in testing
 
+# Customize theme (optional)
+theme:
+  # Border radius for UI elements (e.g., "0.5rem", "8px")
+  radius: "0.5rem"
+
+  # Custom colors (using OKLCH format) / HEX is also ok
+  colors:
+    background: "oklch(0.141 0.005 285.823)"
+    foreground: "oklch(0.985 0 0)"
+    primary: "oklch(0.92 0.004 286.32)"
+    primaryForeground: "oklch(0.21 0.006 285.885)"
+    secondary: "oklch(0.274 0.006 286.033)"
+    secondaryForeground: "oklch(0.985 0 0)"
+    muted: "oklch(0.274 0.006 286.033)"
+    mutedForeground: "oklch(0.705 0.015 286.067)"
+    border: "oklch(1 0 0 / 10%)"
+    input: "oklch(1 0 0 / 15%)"
+    ring: "oklch(0.552 0.016 285.938)"
+
 # Your content sections
 items:
   # Example: Music release
@@ -88,30 +107,6 @@ items:
 
 ### Advanced Configuration Options
 
-#### Theme Customization
-
-You can customize the appearance of your page by adding a `theme` section to your config:
-
-```yaml
-theme:
-  # Border radius for UI elements (e.g., "0.5rem", "8px")
-  radius: "0.5rem"
-
-  # Custom colors (using OKLCH format)
-  colors:
-    background: "oklch(0.141 0.005 285.823)"
-    foreground: "oklch(0.985 0 0)"
-    primary: "oklch(0.92 0.004 286.32)"
-    primaryForeground: "oklch(0.21 0.006 285.885)"
-    secondary: "oklch(0.274 0.006 286.033)"
-    secondaryForeground: "oklch(0.985 0 0)"
-    muted: "oklch(0.274 0.006 286.033)"
-    mutedForeground: "oklch(0.705 0.015 286.067)"
-    border: "oklch(1 0 0 / 10%)"
-    input: "oklch(1 0 0 / 15%)"
-    ring: "oklch(0.552 0.016 285.938)"
-```
-
 #### Link Item Configuration
 
 Each item in your `items` array can be configured with:
@@ -124,7 +119,7 @@ items:
       type: "fill" # or "icon" for smaller images
       src: "/images/your-image.png"
     links:
-      - id: "link-id" # Optional unique identifier
+      - id: "link-id" # Optional unique identifier for URL
         label: "Link Label"
         url: "https://your-url.com"
         icon: "spotify" # Optional icon
@@ -160,7 +155,6 @@ items:
 
 - Check the [example config](public/config.yaml) for reference
 - Open an issue on GitHub
-- Join our [Discord community](https://discord.gg/talamak)
 
 ## License
 

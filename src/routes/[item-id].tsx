@@ -1,15 +1,20 @@
 import { useLoaderData, Link } from "react-router-dom";
-import { LinkItem } from "@/types";
+import { LinkItem, Config } from "@/types";
 import { LinkCard } from "@/components/link-card";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Link as RouterLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import { Footer } from "@/components/footer";
+import { ProfileHeader } from "@/components/profile-header";
 
 export default function ItemPage() {
-  const { item } = useLoaderData() as { item: LinkItem };
+  const { item, config } = useLoaderData() as {
+    item: LinkItem;
+    config: Config;
+  };
   const scrollRef = useRef(null);
 
   // Animation variants
@@ -54,22 +59,34 @@ export default function ItemPage() {
         >
           <div className="p-6 w-full max-w-2xl mx-auto space-y-4">
             <motion.div className="mb-4" variants={itemVariants}>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                <Link to="/" className="flex items-center gap-2">
-                  <ArrowLeft className="size-8" />
-                </Link>
-              </motion.div>
+              <Link to="/" className="flex items-center gap-2">
+                <div className="flex items-center gap-2">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  >
+                    <ArrowLeft className="size-8" />
+                  </motion.div>
+                  <ProfileHeader
+                    avatar={config.avatar}
+                    name={config.name}
+                    bio={config.bio}
+                    animated={false}
+                    compact
+                  />
+                </div>
+              </Link>
             </motion.div>
             {item.image && (
-              <motion.div variants={itemVariants}>
+              <motion.div
+                variants={itemVariants}
+                className="rounded-2xl overflow-hidden max-h-[50dvh] shadow-md"
+              >
                 <motion.img
                   src={item.image.src}
                   alt={item.label}
-                  className="w-full max-h-[50dvh] object-cover rounded-lg shadow-md"
+                  className="w-full object-cover"
                   initial={{ filter: "blur(10px)" }}
                   animate={{ filter: "blur(0px)" }}
                   transition={{ duration: 0.8 }}
@@ -111,13 +128,20 @@ export default function ItemPage() {
               >
                 <Button className="w-full h-16 text-lg rounded-full" asChild>
                   <RouterLink to="/">
-                    <ArrowLeft className="size-6" />
-                    Return Home
+                    All my links
+                    <ArrowRight className="size-6" />
                   </RouterLink>
                 </Button>
               </motion.div>
             </motion.div>
           </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <Footer />
+          </motion.div>
         </motion.div>
       </ScrollArea>
     </motion.main>

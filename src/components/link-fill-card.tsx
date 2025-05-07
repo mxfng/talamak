@@ -38,12 +38,12 @@ export function LinkFillCard({ item, className, style }: LinkFillCardProps) {
     >
       <div
         className={cn(
-          "relative group w-full border border-muted/30 shadow-sm bg-secondary/50 hover:bg-secondary/70 transition-colors -mx-0.5 -my-0.5",
+          "relative group w-full border border-muted/30 shadow-sm bg-secondary/50 hover:bg-secondary/70 transition-colors",
           className,
         )}
         style={{ ...style, boxSizing: "border-box" }}
       >
-        <div className="absolute top-2 right-2 rounded-lg bg-background/30 backdrop-blur-sm shadow-sm p-2">
+        <div className="absolute top-2 right-2 rounded-lg bg-background/30 shadow-sm p-2">
           {singleLinkIcon ? (
             <Icon name={singleLinkIcon} className="size-6 text-foreground/90" />
           ) : (

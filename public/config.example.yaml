@@ -1,12 +1,12 @@
 name: Moro y Toi
 bio: Music producer and DJ based in Talamak. Creating a fusion of traditional bossa nova, UK garage, and folk.
-avatar: /images/avatar.png
+avatar: /images/example/avatar.png
 
 items:
   - label: Midnight Dreams (EP)
     image:
       type: fill
-      src: /images/midnight-dreams.png
+      src: /images/example/midnight-dreams.png
     links:
       - label: Spotify
         url: https://open.spotify.com/album/example
@@ -24,7 +24,7 @@ items:
   - label: Social Media
     image:
       type: icon
-      src: /images/social-icon.png
+      src: /images/example/social-icon.png
     links:
       - label: Instagram
         url: https://instagram.com/johndoe
@@ -39,7 +39,7 @@ items:
   - label: Latest Single
     image:
       type: fill
-      src: /images/latest-single.png
+      src: /images/example/latest-single.png
     links:
       - label: Spotify
         url: https://open.spotify.com/track/example
@@ -63,7 +63,7 @@ items:
   - label: Tour Dates
     image:
       type: icon
-      src: /images/tour-icon.png
+      src: /images/example/tour-icon.png
     links:
       - label: Upcoming Shows
         url: https://johndoe.com/tour
@@ -75,7 +75,7 @@ items:
   - label: Merch
     image:
       type: fill
-      src: /images/merch.png
+      src: /images/example/merch.png
     links:
       - label: Official Store
         url: https://johndoe.com/store

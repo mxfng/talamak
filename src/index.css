@@ -21,6 +21,7 @@
 }
 
 :root {
+  --radius: 18px;
   --background: oklch(0.141 0.005 285.823);
    --foreground: oklch(0.985 0 0);
    --primary: oklch(0.92 0.004 286.32);

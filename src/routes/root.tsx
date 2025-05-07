@@ -10,6 +10,7 @@ import { Toolbar } from "@/components/toolbar";
 import { useSearchStore } from "@/hooks/useSearchStore";
 import { useMemo } from "react";
 import Fuse from "fuse.js";
+import { Footer } from "@/components/footer";
 
 export default function RootPage() {
   const { config } = useLoaderData() as { config: Config };
@@ -68,7 +69,7 @@ export default function RootPage() {
         <div
           className={cn(
             "w-full flex flex-col items-center justify-center",
-            "mb-20 md:mb-0",
+            config.toolbar && searchQuery.length == 0 && "mb-20 md:mb-0",
           )}
         >
           <MasonryLayout
@@ -78,20 +79,7 @@ export default function RootPage() {
               searchQuery ? "No matching items found" : "No items found."
             }
           />
-          {searchQuery.length == 0 && (
-            <div className="w-full flex justify-center items-center p-6 mb-6 text-muted-foreground">
-              Made with{" "}
-              <a
-                href="https://github.com/mxfng/talamak"
-                className="text-primary hover:underline pl-1"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Talamak
-              </a>
-              .
-            </div>
-          )}
+          {searchQuery.length == 0 && <Footer />}
         </div>
       </div>
 
