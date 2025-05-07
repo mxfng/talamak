@@ -11,20 +11,26 @@ A beautiful, customizable landing page for musicians and artists. Share your mus
    cd talamak
    ```
 
-2. **Install dependencies**
+2. **Create your config file**
+
+   ```bash
+   cp public/config.example.yaml public/config.yaml
+   ```
+
+3. **Install dependencies**
 
    ```bash
    bun install
    ```
 
-3. **Start the development server**
+4. **Start the development server**
    ```bash
    bun dev
    ```
 
 ## Customizing Your Page
 
-Edit the `public/config.yaml` file to personalize your page:
+Edit the `public/config.yaml` file to personalize your page.
 
 ```yaml
 # Your name or artist name
@@ -50,6 +56,29 @@ items:
       - label: Apple Music
         url: https://music.apple.com/your-track
         icon: apple_music
+
+  # Example: Social Media
+  - label: Social Media
+    image:
+      type: icon
+      src: /images/social-icon.png
+    links:
+      - label: Instagram
+        url: https://instagram.com/yourusername
+        icon: instagram
+      - label: TikTok
+        url: https://tiktok.com/@yourusername
+        icon: tiktok
+
+  # Example: About Section
+  - label: About
+    links:
+      - label: Biography
+        url: https://yourwebsite.com/about
+        icon: info
+      - label: Press Kit
+        url: https://yourwebsite.com/press
+        icon: link
 ```
 
 ### Advanced Configuration Options
