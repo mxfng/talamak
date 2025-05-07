@@ -164,6 +164,14 @@ items:
 
 MIT License - feel free to use this template for your personal or commercial projects.
 
+## Roadmap
+
+- Add SEO optimization script with image generation from config.avatar
+- Add mailing list
+- Add share functionality
+- Fix searching from toolbar on mobile
+- Maybe: add easy backend integration for analytics
+
 ---
 
 Made by [mxfng](https://github.com/mxfng)
