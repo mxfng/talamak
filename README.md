@@ -141,6 +141,10 @@ items:
   - Run `bun scripts/compress-images.ts` to compress images
   - Original images are preserved by default
   - Compression quality is set to 80% for optimal balance of quality and file size
+- A favicon is automatically generated from your avatar image
+  - Run `bun scripts/create-favicon.ts` to generate a rounded favicon
+  - The favicon is created as an SVG with a circular mask
+  - Make sure your `avatar` is set in `config.yaml`
 
 ## Deploying Your Page
 
