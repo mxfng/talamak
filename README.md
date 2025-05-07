@@ -1,4 +1,5 @@
 ![Preview of Talamak landing page](public/preview.webp)
+![Preview of Talamak sendoff page](public/preview2.webp)
 
 # Talamak
 
