@@ -1,0 +1,85 @@
+name: Moro y Toi
+bio: Music producer and DJ based in Talamak. Creating a fusion of traditional bossa nova, UK garage, and folk.
+avatar: /images/example/avatar.webp
+
+items:
+  - label: Midnight Dreams (EP)
+    image:
+      type: fill
+      src: /images/example/midnight-dreams.webp
+    links:
+      - label: Spotify
+        url: https://open.spotify.com/album/example
+        icon: spotify
+      - label: Apple Music
+        url: https://music.apple.com/us/album/example
+        icon: apple_music
+      - label: YouTube
+        url: https://youtube.com/watch?v=example
+        icon: youtube
+      - label: Bandcamp
+        url: https://johndoe.bandcamp.com/album/midnight-dreams
+        icon: bandcamp
+
+  - label: Social Media
+    image:
+      type: icon
+      src: /images/example/social-icon.webp
+    links:
+      - label: Instagram
+        url: https://instagram.com/johndoe
+        icon: instagram
+      - label: TikTok
+        url: https://tiktok.com/@johndoe
+        icon: tiktok
+      - label: Twitter
+        url: https://twitter.com/johndoe
+        icon: x
+
+  - label: Latest Single
+    image:
+      type: fill
+      src: /images/example/latest-single.webp
+    links:
+      - label: Spotify
+        url: https://open.spotify.com/track/example
+        icon: spotify
+      - label: YouTube Music
+        url: https://music.youtube.com/watch?v=example
+        icon: youtube_music
+      - label: Beatport
+        url: https://www.beatport.com/track/example
+        icon: beatport
+
+  - label: About
+    links:
+      - label: Biography
+        url: https://johndoe.com/about
+        icon: info
+      - label: Press Kit
+        url: https://johndoe.com/press
+        icon: link
+
+  - label: Tour Dates
+    image:
+      type: icon
+      src: /images/example/tour-icon.webp
+    links:
+      - label: Upcoming Shows
+        url: https://johndoe.com/tour
+        icon: link
+      - label: Bookings
+        url: https://johndoe.com/contact
+        icon: info
+
+  - label: Merch
+    image:
+      type: fill
+      src: /images/example/merch.webp
+    links:
+      - label: Official Store
+        url: https://johndoe.com/store
+        icon: website
+      - label: Bandcamp
+        url: https://johndoe.bandcamp.com/merch
+        icon: bandcamp
