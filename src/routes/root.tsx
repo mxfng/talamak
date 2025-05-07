@@ -8,13 +8,15 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Toolbar } from "@/components/toolbar";
 import { useSearchStore } from "@/hooks/useSearchStore";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import Fuse from "fuse.js";
 import { Footer } from "@/components/footer";
+import { useScrollStore } from "@/hooks/useScrollStore";
 
 export default function RootPage() {
   const { config } = useLoaderData() as { config: Config };
   const searchQuery = useSearchStore((state) => state.searchQuery);
+  const setScrollPosition = useScrollStore((state) => state.setScrollPosition);
 
   const fuse = useMemo(
     () =>
@@ -34,6 +36,10 @@ export default function RootPage() {
     const results = fuse.search(searchQuery);
     return results.map((result) => result.item);
   }, [fuse, searchQuery, config?.items]);
+
+  useEffect(() => {
+    setScrollPosition(0);
+  }, [config]);
 
   if (!config) return <p>No config found</p>;
 
