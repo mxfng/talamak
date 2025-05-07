@@ -10,22 +10,6 @@ const ItemPage = lazy(() => import("./routes/[item-id]"));
 
 type RouteData = { config: Config } | { item: LinkItem; config: Config };
 
-// Wrapper component to render SEO from route handles
-function SEOHandler() {
-  const matches = useMatches();
-  const match = matches[matches.length - 1];
-  const handle = match?.handle as {
-    seo?: (data: RouteData) => React.ReactNode;
-  };
-  const data = match?.data as RouteData;
-
-  if (handle?.seo && data) {
-    return handle.seo(data);
-  }
-
-  return null;
-}
-
 // Root layout that includes SEO and renders child routes
 function RootLayout() {
   return (
@@ -36,9 +20,23 @@ function RootLayout() {
   );
 }
 
-export const router = createBrowserRouter([
+// Component to handle SEO based on current route
+function SEOHandler() {
+  const matches = useMatches();
+  const lastMatch = matches[matches.length - 1];
+  const handle = lastMatch?.handle as {
+    seo: (data: RouteData) => React.ReactNode;
+  };
+  const data = lastMatch?.data as RouteData;
+
+  if (!handle?.seo || !data) return null;
+  return handle.seo(data);
+}
+
+const router = createBrowserRouter([
   {
     element: <RootLayout />,
+    hydrateFallbackElement: <Fallback />,
     children: [
       {
         path: "/",
@@ -88,3 +86,5 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
+
+export { router };
