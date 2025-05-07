@@ -7,7 +7,7 @@ A beautiful, customizable landing page for musicians and artists. Share your mus
 1. **Clone this repository**
 
    ```bash
-   git clone https://github.com/yourusername/talamak.git
+   git clone https://github.com/mxfng/talamak.git
    cd talamak
    ```
 
