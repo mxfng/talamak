@@ -42,6 +42,9 @@ bio: Your bio here
 # Profile picture (place in /public/images/)
 avatar: /images/avatar.png
 
+# Toolbar (experimental, unfinished - do not use in production)
+toolbar: false # only set to true if you're interested in testing
+
 # Your content sections
 items:
   # Example: Music release
