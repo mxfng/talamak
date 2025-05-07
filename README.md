@@ -1,3 +1,5 @@
+![Preview of Talamak landing page](public/preview.png)
+
 # Talamak - Artist Landing Page
 
 A beautiful, customizable landing page for musicians and artists. Share your music, social media, and more in one place.
