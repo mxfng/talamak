@@ -11,17 +11,11 @@ interface ProfileHeaderProps {
 }
 
 // 🎛️ Constants for easy tuning
-const SCROLL_RANGE = 80;
-const COMPACT_THRESHOLD = 0.8;
+const SCROLL_RANGE = 100;
+const COMPACT_THRESHOLD = 1;
 
 const AVATAR_MAX = 120;
 const AVATAR_MIN = 64;
-
-const FONT_MAX = 28;
-const FONT_MIN = 28;
-
-const PADDING_MAX = 18;
-const PADDING_MIN = 0;
 
 export function ProfileHeader({
   avatar,
@@ -42,16 +36,6 @@ export function ProfileHeader({
     : animated
       ? AVATAR_MAX - (AVATAR_MAX - AVATAR_MIN) * factor
       : AVATAR_MAX;
-  const fontSize = isCompact
-    ? 18
-    : animated
-      ? FONT_MAX - (FONT_MAX - FONT_MIN) * factor
-      : FONT_MAX;
-  const paddingY = isCompact
-    ? 0
-    : animated
-      ? PADDING_MAX - (PADDING_MAX - PADDING_MIN) * factor
-      : PADDING_MAX;
 
   return (
     <div
@@ -61,9 +45,6 @@ export function ProfileHeader({
           "bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/60",
         className,
       )}
-      style={{
-        paddingBottom: `${paddingY}px`,
-      }}
     >
       <div className="flex items-center justify-between transition-all duration-75 ease-out">
         {avatar && (
@@ -85,10 +66,9 @@ export function ProfileHeader({
         <div className="ml-4 flex-1">
           <h1
             className={cn(
-              "font-bold transition-all duration-75 ease-out",
+              "font-bold transition-all duration-75 ease-out text-2xl",
               isCompact && "tracking-tight",
             )}
-            style={{ fontSize: `${fontSize}px` }}
           >
             {name}
           </h1>

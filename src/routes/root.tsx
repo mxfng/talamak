@@ -16,7 +16,6 @@ export default function RootPage() {
   const { config } = useLoaderData() as { config: Config };
   const searchQuery = useSearchStore((state) => state.searchQuery);
 
-  // Setup fuzzy search with Fuse.js
   const fuse = useMemo(
     () =>
       new Fuse(config?.items || [], {
@@ -27,7 +26,6 @@ export default function RootPage() {
     [config?.items],
   );
 
-  // Filter items based on search query
   const filteredItems = useMemo(() => {
     if (!searchQuery.trim() || !config?.items) {
       return config?.items || [];
@@ -37,13 +35,13 @@ export default function RootPage() {
     return results.map((result) => result.item);
   }, [fuse, searchQuery, config?.items]);
 
-  if (!config) return <p>Loading...</p>;
+  if (!config) return <p>No config found</p>;
 
   return (
-    <RootLayout config={config}>
+    <RootLayout>
       {/* Main content */}
       <div className="flex-1 w-full max-w-2xl mx-auto">
-        <div className="md:sticky md:top-0 z-10 bg-background py-4 flex flex-col gap-6">
+        <div className="md:absolute md:top-0 z-10 bg-background py-4 flex flex-col gap-6 w-full max-w-2xl">
           <ProfileHeader
             avatar={config.avatar}
             name={config.name}
@@ -68,7 +66,8 @@ export default function RootPage() {
 
         <div
           className={cn(
-            "w-full flex flex-col items-center justify-center",
+            "w-full flex flex-col items-center justify-center pt-6 md:pt-[128px]",
+            config.toolbar && "md:pt-[220px]",
             config.toolbar && searchQuery.length == 0 && "mb-20 md:mb-0",
           )}
         >
