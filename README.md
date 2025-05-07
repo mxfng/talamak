@@ -137,6 +137,10 @@ items:
 - Use PNG or JPG format
 - For album covers and large images, use `type: fill`
 - For icons and small images, use `type: icon`
+- Images are automatically compressed to WebP format using the `compress-images.ts` script
+  - Run `bun scripts/compress-images.ts` to compress images
+  - Original images are preserved by default
+  - Compression quality is set to 80% for optimal balance of quality and file size
 
 ## Deploying Your Page
 

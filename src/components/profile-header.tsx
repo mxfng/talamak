@@ -66,8 +66,8 @@ export function ProfileHeader({
         <div className="ml-4 flex-1">
           <h1
             className={cn(
-              "font-bold transition-all duration-75 ease-out text-2xl",
-              isCompact && "tracking-tight",
+              "font-bold transition-all duration-75 ease-out text-3xl",
+              isCompact && "tracking-tight text-xl",
             )}
           >
             {name}
