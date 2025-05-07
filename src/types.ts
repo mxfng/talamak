@@ -38,10 +38,30 @@ export interface LinkItem {
   image?: LinkImage;
 }
 
+export interface ThemeColors {
+  background?: string;
+  foreground?: string;
+  primary?: string;
+  primaryForeground?: string;
+  secondary?: string;
+  secondaryForeground?: string;
+  muted?: string;
+  mutedForeground?: string;
+  border?: string;
+  input?: string;
+  ring?: string;
+}
+
+export interface Theme {
+  colors?: ThemeColors;
+  radius?: string;
+}
+
 export interface Config {
   name: string;
   bio?: string;
   avatar?: string;
   toolbar: boolean;
   items: LinkItem[];
+  theme?: Theme;
 }

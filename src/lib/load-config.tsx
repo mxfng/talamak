@@ -1,5 +1,5 @@
 import yaml from "js-yaml";
-import type { Config, LinkItem, Link } from "@/types";
+import type { Config, LinkItem, Link, ThemeColors } from "@/types";
 
 // slugify: lowercase, kebab-case
 function slugify(str: string): string {
@@ -9,6 +9,15 @@ function slugify(str: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
+function applyThemeColors(colors: ThemeColors) {
+  Object.entries(colors).forEach(([key, value]) => {
+    if (value) {
+      const cssVar = `--${key}`;
+      document.documentElement.style.setProperty(cssVar, value);
+    }
+  });
+}
+
 export async function loadConfig(): Promise<Config> {
   const res = await fetch("/config.yaml");
   const text = await res.text();
@@ -16,11 +25,25 @@ export async function loadConfig(): Promise<Config> {
     items: Omit<LinkItem, "id">[];
   };
 
+  // Apply theme configuration if present
+  if (raw.theme) {
+    // Set radius if specified
+    if (raw.theme.radius) {
+      document.documentElement.style.setProperty("--radius", raw.theme.radius);
+    }
+
+    // Apply colors if specified
+    if (raw.theme.colors) {
+      applyThemeColors(raw.theme.colors);
+    }
+  }
+
   return {
     name: raw.name,
     bio: raw.bio,
     avatar: raw.avatar,
     toolbar: raw.toolbar ?? false,
+    theme: raw.theme,
     items: raw.items.map((item, itemIndex) => {
       const slug = slugify(item.label);
       const itemId = `${itemIndex}-${slug}`;

@@ -1,81 +1,136 @@
-# Talamak
+# Talamak - Artist Landing Page
 
-**Talamak** is a lightweight, YAML-configurable link-in-bio tool built for musicians, creators, and anyone needing a clean landing page for their links.
+A beautiful, customizable landing page for musicians and artists. Share your music, social media, and more in one place.
 
-## Features
+## Quick Start
 
-- Responsive, ultra modern UI with mobile support
-- Support for nested links, like providing multiple streaming services for a link to a song
-- Optional toolbar with fuzzy search, mailing list (coming soon), and sharing functionality
-- Fast and minimal - configurable via `config.yaml` and static image assets
+1. **Clone this repository**
 
-# Proposed Features
+   ```bash
+   git clone https://github.com/yourusername/talamak.git
+   cd talamak
+   ```
 
-- Improve search bar accessibility on mobile. Consider requiring enter key, showing suggestions, or other enhancements
-- Add mailing list support. Investigate ease of YAML-based setup for user opt-in
-- Add toggleable sharing button. Controlled via YAML (true/false), opens a share dialog
-- Extend sharing support to individual linkItems
-- Support full theme customization via YAML
-- Fix layout shift caused by static image loading
-- Add a "scroll to top" button
+2. **Install dependencies**
 
-## Getting Started
+   ```bash
+   bun install
+   ```
 
-### Install & Run
+3. **Start the development server**
+   ```bash
+   bun dev
+   ```
 
-```bash
-git clone https://github.com/mxfng/talamak.git
-cd talamak
-npm install
-npm run dev
-```
+## Customizing Your Page
 
-## Configuration
-
-Edit `public/config.yaml` to customize your profile and links.
-
-### Example
+Edit the `public/config.yaml` file to personalize your page:
 
 ```yaml
+# Your name or artist name
 name: Your Name
-bio: Short description (optional)
-avatar: /images/avatar.jpg
-toolbar: true
 
+# A short bio
+bio: Your bio here
+
+# Profile picture (place in /public/images/)
+avatar: /images/avatar.png
+
+# Your content sections
 items:
-  - label: My Music
+  # Example: Music release
+  - label: Your Release Name
     image:
-      type: fill
-      src: /images/cover.jpg
+      type: fill # or "icon" for smaller images
+      src: /images/your-image.png
     links:
       - label: Spotify
-        url: https://open.spotify.com/artist/your-id
+        url: https://open.spotify.com/your-track
         icon: spotify
-
-  - label: Socials
-    links:
-      - label: Instagram
-        url: https://instagram.com/yourusername
-        icon: instagram
+      - label: Apple Music
+        url: https://music.apple.com/your-track
+        icon: apple_music
 ```
 
-### Built-in Icons
+### Advanced Configuration Options
 
-- **Music**: `spotify`, `apple_music`, `youtube`, `youtube_music`, `amazon_music`, `beatport`, `bandcamp`, `soundcloud`
-- **Social**: `tiktok`, `instagram`, `x`, `facebook`, `threads`, `github`
+#### Theme Customization
+
+You can customize the appearance of your page by adding a `theme` section to your config:
+
+```yaml
+theme:
+  # Border radius for UI elements (e.g., "0.5rem", "8px")
+  radius: "0.5rem"
+
+  # Custom colors (using OKLCH format)
+  colors:
+    background: "oklch(0.141 0.005 285.823)"
+    foreground: "oklch(0.985 0 0)"
+    primary: "oklch(0.92 0.004 286.32)"
+    primaryForeground: "oklch(0.21 0.006 285.885)"
+    secondary: "oklch(0.274 0.006 286.033)"
+    secondaryForeground: "oklch(0.985 0 0)"
+    muted: "oklch(0.274 0.006 286.033)"
+    mutedForeground: "oklch(0.705 0.015 286.067)"
+    border: "oklch(1 0 0 / 10%)"
+    input: "oklch(1 0 0 / 15%)"
+    ring: "oklch(0.552 0.016 285.938)"
+```
+
+#### Link Item Configuration
+
+Each item in your `items` array can be configured with:
+
+```yaml
+items:
+  - id: "unique-id" # Optional unique identifier
+    label: "Section Title"
+    image:
+      type: "fill" # or "icon" for smaller images
+      src: "/images/your-image.png"
+    links:
+      - id: "link-id" # Optional unique identifier
+        label: "Link Label"
+        url: "https://your-url.com"
+        icon: "spotify" # Optional icon
+```
+
+### Available Icons
+
+- **Music Platforms**: `spotify`, `apple_music`, `youtube`, `youtube_music`, `amazon_music`, `beatport`, `bandcamp`, `soundcloud`
+- **Social Media**: `tiktok`, `instagram`, `x`, `facebook`, `threads`, `github`
 - **Other**: `website`, `info`, `link`
 
-## Deployment
+### Image Guidelines
 
-```bash
-bun build
-```
+- Place all images in the `/public/images/` folder
+- Use PNG or JPG format
+- For album covers and large images, use `type: fill`
+- For icons and small images, use `type: icon`
 
-Deploy the `dist/` directory to any static host (Vercel, Netlify, GitHub Pages, etc.)
+## Deploying Your Page
+
+1. **Build the project**
+
+   ```bash
+   bun build
+   ```
+
+2. **Deploy to your preferred hosting service**
+   - [Vercel](https://vercel.com) (recommended)
+   - [Netlify](https://netlify.com)
+   - [GitHub Pages](https://pages.github.com)
+
+## Need Help?
+
+- Check the [example config](public/config.yaml) for reference
+- Open an issue on GitHub
+- Join our [Discord community](https://discord.gg/talamak)
 
 ## License
 
-[MIT](LICENSE)
+MIT License - feel free to use this template for your personal or commercial projects.
 
 ---
 

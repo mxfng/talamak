@@ -38,9 +38,7 @@ const Message: React.FC<MessageProps> = ({
 
       {resetErrorBoundary && (
         <div className="pt-4 opacity-70 text-sm">
-          <Button variant="ghost" onClick={resetErrorBoundary}>
-            Try again
-          </Button>
+          <Button onClick={resetErrorBoundary}>Try again</Button>
         </div>
       )}
     </div>
