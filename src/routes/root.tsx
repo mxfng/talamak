@@ -40,7 +40,7 @@ export default function RootPage() {
   if (!config) return <p>Loading...</p>;
 
   return (
-    <RootLayout>
+    <RootLayout config={config}>
       {/* Main content */}
       <div className="flex-1 w-full max-w-2xl mx-auto">
         <div className="md:sticky md:top-0 z-10 bg-background py-4 flex flex-col gap-6">
